@@ -1,0 +1,6 @@
+shadow prebuilt repo: gsid (target, extractive payload, prefixes as-built upstream)
+  upstream: system/gsid
+  api-level: 34 (local ag-build rebuild 2026-10-11, branch 34-20261011)
+  blobs: org.blisslabs.ag.ext.gsid.apex 
+  src: extracted base payload + regenerated root Android.bp (gen_extractive_bp.py)
+  date: 2026-10-11
