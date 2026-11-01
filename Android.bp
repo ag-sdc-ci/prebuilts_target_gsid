@@ -27,7 +27,7 @@ cc_library_headers {
     min_sdk_version: "31",
 }
 
-cc_prebuilt_library_shared {
+cc_prebuilt_library {
     name: "libgsi",
     ramdisk_available: true,
     vendor_ramdisk_available: true,
@@ -35,18 +35,12 @@ cc_prebuilt_library_shared {
     host_supported: true,
     check_elf_files: false,
     export_include_dirs: ["include"],
-    srcs: ["lib/libgsi.so"],
-    prefer: true,
-}
-
-cc_prebuilt_library_static {
-    name: "libgsi",
-    ramdisk_available: true,
-    vendor_ramdisk_available: true,
-    recovery_available: true,
-    host_supported: true,
-    export_include_dirs: ["include"],
-    srcs: ["lib/libgsi.a"],
+    shared: {
+        srcs: ["lib/libgsi.so"],
+    },
+    static: {
+        srcs: ["lib/libgsi.a"],
+    },
     prefer: true,
 }
 
@@ -57,17 +51,15 @@ cc_prebuilt_library_static {
     prefer: true,
 }
 
-cc_prebuilt_library_shared {
+cc_prebuilt_library {
     name: "gsi_aidl_interface-cpp",
     check_elf_files: false,
     export_include_dirs: ["include"],
-    srcs: ["lib/libgsi_aidl_interface-cpp.so"],
-    prefer: true,
-}
-
-cc_prebuilt_library_static {
-    name: "gsi_aidl_interface-cpp",
-    export_include_dirs: ["include"],
-    srcs: ["lib/libgsi_aidl_interface-cpp.a"],
+    shared: {
+        srcs: ["lib/libgsi_aidl_interface-cpp.so"],
+    },
+    static: {
+        srcs: ["lib/libgsi_aidl_interface-cpp.a"],
+    },
     prefer: true,
 }
